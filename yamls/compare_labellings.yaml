@@ -1,0 +1,20 @@
+id: CompareLabellings-{VER}
+meta:
+  title: Compare Labellings {VER}
+  subtitle: >-
+    Obtain set statistics, for example of all cells in group A, 10% are glial cells.
+  description: >
+    Obtain set statistics, for example of all cells in group A, 10% are glial cells.
+endpoints:
+  backend:
+    cmd: python ./compare_labellings.py
+    type: docker
+    image: {GBOX}
+frontend:
+  imports:
+    - kind: sampleMeta
+      label: Values for top level set (for example, you have all of the cells labelled by patient)
+      injectInto: toplevel
+    - kind: sampleMeta
+      label: Values to compare against (for example, you also obtained all of the cell types)
+      injectInto: secondlevel

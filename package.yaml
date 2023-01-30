@@ -1,0 +1,9 @@
+id: comparelabellings-{VER}
+
+meta:
+  maintainer:
+    name: GranatumX
+    email: lana.garmire.group@gmail.com
+
+gboxes:
+  - ./yamls/compare_labellings.yaml
