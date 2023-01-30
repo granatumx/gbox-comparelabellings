@@ -13,13 +13,13 @@ def main():
     gn = Granatum()
 
     toplevel = gn.get_import("toplevel")
-    secondlevel = gn.get_import("toplevel")
+    secondlevel = gn.get_import("secondlevel")
 
     dict_1_inv = invert_dict(toplevel)
     dict_2_inv = invert_dict(secondlevel)
     init_df = pd.DataFrame(0.0, index=dict_2_inv.keys(), columns=dict_1_inv.keys()).apply(lambda col: pd.Series([len(set(dict_1_inv[col.name]).intersection(set(dict_2_inv[row])))/len(dict_1_inv[col.name]) for row in col.index]), axis=0, result_type="broadcast")
 
-    gn.add_pandas_df(init_df)
+    gn.add_pandas_df(init_df.reset_index())
 
     gn.commit()
 
